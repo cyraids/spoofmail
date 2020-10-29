@@ -30,4 +30,4 @@ your web hosting service must support phpmailer to send mail successfully</p>
 
 `cd spoofmail`   
 `chmod +x mail.sh`  
-`sh mail.sh`
+`./mail.sh`
