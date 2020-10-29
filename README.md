@@ -28,6 +28,6 @@ your web hosting service must support phpmailer to send mail successfully</p>
 
 ## Method 2 - termux
 
-'cd spoofmail'  
+`cd spoofmail`   
 `chmod +x mail.sh`  
 `sh mail.sh`
