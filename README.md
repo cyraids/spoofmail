@@ -7,7 +7,7 @@
 
 Send spoofed email address from any email to any email
 
-**requirement**
+**requirement**  
 any web hosting service
 *example: 000webhost.com *
 
@@ -28,6 +28,6 @@ your web hosting service must support phpmailer to send mail successfully</p>
 
 ## Method 2 - termux
 
-'cd email-spoofer'
-`chmod +x mail.sh`
+'cd email\-spoofer'  
+`chmod +x mail.sh`  
 `sh mail.sh`
