@@ -1,0 +1,132 @@
+
+<head>
+<meta name="HandheldFriendly" content="true" />
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Email spoofer | Cyraids</title>
+
+
+</head>
+
+<body>
+<style type="text/css">
+body {
+margin:10px;
+background: black;
+color: #0f0;
+
+}
+
+input,textarea {
+
+font-size:1em;
+background: #000;
+border: 1px solid gray;
+width: 90%;
+margin:auto;
+display: block;
+height: 1.5em;
+color: white;
+padding: 15px;
+border-radius:5px; 
+margin-top: 10px;
+}
+textarea {
+height: 200px;
+
+}
+
+#result {
+color:white;
+}
+button {
+width: 50%;
+display: block;
+margin:auto;
+background: green;
+border:none;
+padding: 10px;
+color: white;
+border-radius:5px;
+margin-top: 20px;
+}
+#checkbox {
+display:inline;
+width: 20px;
+
+}
+</style>
+
+
+
+<label>From Name:</label><br>
+<input id="from_name" required><br>
+<label>From Email:</label><br>
+<input id="from_email" type="email" required><br>
+<label>To Email:</label><br>
+<input id="to_email" type="email" required><br>
+<label>Subject:</label><br>
+<input id="subject" required><br>
+<label>Body of the mail:</label><br>
+<textarea id="message" placeholder="Text or html" required></textarea><br>
+<input type="checkbox" id="checkbox">
+<span  style="color:red"> I accept that, I will not use this for illegal purposes</span><br>
+<button id="btn" onclick="send()">Send</button>
+<div id="result"></div>
+
+<script type="text/javascript">
+
+function send(){
+var name=document.getElementById("from_name").value;
+var from=document.getElementById("from_email").value;
+var to=document.getElementById("to_email").value;
+var subject=document.getElementById("subject").value;
+var message=document.getElementById("message").value;
+var checked=document.getElementById("checkbox").checked;
+var info = "from="+from+"&name="+name+"&to="+to+"&message="+message+"&subject="+subject;
+
+if (name && from && to && message) {
+if (checked) {
+
+document.getElementById("btn").textContent="sending...";
+document.getElementById("btn").style.background="gray";
+document.getElementById("btn").disabled = true;
+   
+var send = new XMLHttpRequest();
+send.onreadystatechange = function() {
+
+  if (send.readyState == 4 && send.status == 200) {
+   document.getElementById("checkbox").checked = false;
+   document.getElementById("btn").disabled = false;
+   document.getElementById("btn").style.background="green";
+   document.getElementById("btn").textContent="send";
+   var result = send.responseText;
+   alert(result);
+   
+   var res = document.getElementById("result");
+   res.innerHTML = res.innerHTML + result +"<br>";
+  
+  }
+};
+send.open("POST", "send-mail.php", true);
+send.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+send.send(info);
+
+
+
+} else {
+alert("accept the condition");
+
+}
+} else {
+alert("fill all the details");
+}
+
+}
+</script>
+
+
+
+</body>
