@@ -1,14 +1,14 @@
 # email-spoofer
 
 ## Installation
-`git clone https://github.com/cyraids/email-spoofer`
+`git clone https://github.com/cyraids/spoofmail`
 
 ## method 1 - webhosting
 
 Send spoofed email address from any email to any email
 
 **requirement**  
-any web hosting service
+any web hosting service  
 *example: 000webhost.com *
 
 **note:** 
@@ -28,6 +28,6 @@ your web hosting service must support phpmailer to send mail successfully</p>
 
 ## Method 2 - termux
 
-'cd email\-spoofer'  
+'cd spoofmail'  
 `chmod +x mail.sh`  
 `sh mail.sh`
