@@ -9,7 +9,7 @@ Send spoofed email address from any email to any email
 
 **requirement**  
 any web hosting service  
-*example: 000webhost.com *
+*example: 000webhost.com*
 
 **note:** 
 
